@@ -35,7 +35,7 @@ function App() {
     console.log(data)
  
     axios
-      .post('http://localhost:3001/parents/new', {...data, mode:'cors'})
+      .post('/parents/new', {...data, mode:'cors'})
       .then(response => {
         if(response.data.error)console.log(response.data.error)
         else{
@@ -57,7 +57,7 @@ function App() {
     }
     if (data.accountType=='p') {                                          //PARENT LOGIN
       axios
-        .post('http://localhost:3001/sessions/new', data)
+        .post('/sessions/new', data)
         .then(response => {
           if(response.data.error)console.log(response.data.error)
           else {
@@ -72,7 +72,7 @@ function App() {
         .then( ( parentId ) => {
           //all good up to here
           console.log("getting children from parent: " , parentId)
-          axios.get(`http://localhost:3001/children/all?parent=${parentId}`)
+          axios.get(`/children/all?parent=${parentId}`)
             .then( response => {
               console.log("CHILDREN: ")
               console.log(response)
@@ -86,7 +86,7 @@ function App() {
         .then( ( parentId ) => {
           //all good up to here
           console.log("getting contacts from parent: " , parentId)
-          axios.get(`http://localhost:3001/users/all?parent=${parentId}&t=p`)
+          axios.get(`/users/all?parent=${parentId}&t=p`)
             .then( response => {
               console.log("Contacts: ")
               console.log(response)
@@ -103,7 +103,7 @@ function App() {
     }
     else if (data.accountType == 'c')   {                                                          //CHILD LOGIN
     axios
-    .post('http://localhost:3001/sessions/new', data)
+    .post('/sessions/new', data)
     .then(response => {
       if(response.data.error)console.log(response.data.error)
       else {
@@ -118,7 +118,7 @@ function App() {
     .then( ( child_id ) => {              //getting contacts for child
       //all good up to here
       console.log("getting contacts for child: " , child_id)
-      axios.get(`http://localhost:3001/contacts/getusers?child_id=${child_id}`)
+      axios.get(`/contacts/getusers?child_id=${child_id}`)
         .then( response => {
           console.log("Contacts: ")
           console.log(response)
@@ -133,7 +133,7 @@ function App() {
   }
   else if(data.accountType == 's')  {                                                         //USER LOGIN
     axios
-    .post('http://localhost:3001/sessions/new', data)
+    .post('/sessions/new', data)
     .then(response => {
       if(response.data.error)console.log(response.data.error)
       else {
@@ -148,7 +148,7 @@ function App() {
     .then( ( user_id ) => {              //getting contacts for user
       //all good up to here
       console.log("getting contacts for user: " , user_id)
-      axios.get(`http://localhost:3001/contacts/getuserscontacts?user_id=${user_id}`)
+      axios.get(`/contacts/getuserscontacts?user_id=${user_id}`)
         .then( response => {
           console.log("Contacts: ")
           console.log(response)
@@ -177,7 +177,7 @@ function App() {
          console.log("adding children data")
         //axios add child
         axios
-          .post('http://localhost:3001/children/new', {...data, image_url:response.data.secure_url, mode:'cors'})
+          .post('/children/new', {...data, image_url:response.data.secure_url, mode:'cors'})
           .then( res2 => {
 
             console.log( res2 )
@@ -203,7 +203,7 @@ function App() {
         //create standard user model and routes in server
 
         axios
-          .post('http://localhost:3001/users/new', {...data, image_url:response.data.secure_url, mode:'cors'})
+          .post('/users/new', {...data, image_url:response.data.secure_url, mode:'cors'})
           .then( res2 => {
 
             console.log( res2 )
