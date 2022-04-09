@@ -1,5 +1,4 @@
-kidsocial/.env
-kidsocial/frontend/.env
-node_modules
-kidsocial/node_modules
-kidsocial/frontend/node_modules 
+.env
+frontend/src/.env
+node_modules 
+frontend/node_modules 
