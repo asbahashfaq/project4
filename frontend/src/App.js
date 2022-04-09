@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Navigation from './components/nav'
 import './App.css'; 
 import axios from 'axios'
@@ -10,6 +10,8 @@ import './scss/login.scss'
 // const cloudinary = require('cloudinary').v2
 // console.log(cloudinary.config().cloud_name)
 
+
+
 function App() { 
 
   const [userDetails, setUserDetails] = useState({})
@@ -19,6 +21,8 @@ function App() {
   const [children, setChildrenData] = useState([])
   const [contacts, setContactData] = useState([])
   const [childandContactsData, setChildandContactsData] = useState([{child: {}, contacts: [], contactDetails: [] }])
+
+  //socket webrtc stuff
 
   const toggleSignUpSignIn = (e) => {
     e.preventDefault()
@@ -213,6 +217,7 @@ function App() {
   return (
     <div className="App">
       <Navigation handleAddContact={handleAddContact} childandContactsData={childandContactsData} setChildandContactsData={setChildandContactsData} user={userDetails} children={children} contacts={contacts} loggedIn={loggedIn} signinorup={signinorup} accountType={accountType} toggleSignUpSignIn={toggleSignUpSignIn} handleSignUp={handleSignUp} handleSignIn={handleSignIn}  handleAddChild={handleAddChild}/>      
+      
     </div>
   );
 }

@@ -15,11 +15,13 @@ function Nav(props){ //props will have loggedIn? and account type and signUp
                     :<SignUp toggleSignUpSignIn={props.toggleSignUpSignIn} handleSignUp={props.handleSignUp}/>
                 :(props.accountType=='p') 
                     ?<ParentScreen contacts={props.contacts} handleAddContact={props.handleAddContact} childandContactsData={props.childandContactsData} setChildandContactsData={props.setChildandContactsData} accountType={props.accountType} children={props.children} loggedIn={props.loggedIn} user={props.user} handleAddChild={props.handleAddChild}/>
-                    :(props.user.accountType=='c') 
-                        ?<ChildScreen contacts={props.contacts} user={props.user}/>
-                        :(props.user.accountType=='s') 
-                            ?<UserScreen contacts={props.contacts} user={props.user}/>
-                            :""}
+                    :(props.user.accountType=='c'||props.user.accountType=='s') 
+                        ?<UserScreen contacts={props.contacts} user={props.user} accountType={props.accountType}/>
+                        :''
+                        // (props.user.accountType=='s') 
+                        //     ?<UserScreen contacts={props.contacts} user={props.user} accountType={props.accountType}/>
+                        //     :""
+                    }
                 
             {/* {(props.loggedIn)?<ContactsPage accountType={props.accountType} loggedIn={props.loggedIn} user={props.user}/>:(props.signinorup)?<SignIn toggleSignUpSignIn={props.toggleSignUpSignIn} handleSignIn={props.handleSignIn}/>:<SignUp toggleSignUpSignIn={props.toggleSignUpSignIn} handleSignUp={props.handleSignUp}/>} */}
         
