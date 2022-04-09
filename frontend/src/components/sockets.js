@@ -77,7 +77,7 @@ function Sockets(props){
       setYourID(id);
     })
     socket.current.on("allUsers", (onlineusers) => {
-        console.log(onlineusers)
+      console.log(onlineusers)
       setUsers(onlineusers);
 
     })
@@ -171,7 +171,8 @@ function Sockets(props){
 
   let incomingCall;
   if (receivingCall) {
-    if(!callAccepted)
+    console.log("receiving call")
+    // if(!callAccepted)
       // document.querySelector('.incomingCall').classList.remove('hide')
 
     incomingCall = (
