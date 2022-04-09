@@ -1,6 +1,5 @@
-.env
-backend/.env
-frontend/.env
+kidsocial/.env
+kidsocial/frontend/.env
 node_modules
-backend/node_modules
-frontend/node_modules 
+kidsocial/node_modules
+kidsocial/frontend/node_modules 
