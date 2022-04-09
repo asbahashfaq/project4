@@ -78,6 +78,7 @@ app.use(sessions)
   
 const { v4: uuidv4 } = require('uuid');
 console.log(uuidv4())
+
 //routes 
 app.use('/parents', parentsController)
 app.use('/sessions', sessionsController)
@@ -86,6 +87,16 @@ app.use('/users', usersController)
 app.use('/contacts', contactsController)
 
 
+
+if (process.env.NODE_ENV === 'production') {
+    const path = require('path')
+    app.use(express.static(path.join(__dirname, 'build')));
+  
+    app.get('/*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    });
+  }
+  
 // const express = require('express')
 // const http = require('http')
 // const app = express()
