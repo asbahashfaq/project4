@@ -19,7 +19,7 @@ const router = express.Router()
 //         .then(response => res.json(response))
 // })
 router.post('/newContact', (req, res) => {
-        // request: axios.post(`http://localhost:3001/contacts/newContact?c_id=${childID}&p_id=${parentID}&u_id=${contactID}`).then(
+        // request: axios.post(`/contacts/newContact?c_id=${childID}&p_id=${parentID}&u_id=${contactID}`).then(
     
     console.log('test post request contact') 
     const { p_id, c_id, u_id } = req.query
@@ -81,7 +81,7 @@ router.get('/getuserscontacts', (req,res) => {
         .catch(error => console.log("err",error))
 })
 router.delete('/del', (req, res) => {
-    //axios.delete(`http://localhost:3001/contacts/del?c_id=${childID}&u_id=${contactID}`).then(
+    //axios.delete(`/contacts/del?c_id=${childID}&u_id=${contactID}`).then(
     console.log('removing from contacts')
     const { c_id, u_id } = req.query
 

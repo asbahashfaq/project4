@@ -4,7 +4,7 @@ function parentalControl(props){
     const openChildDetails = (e) => {
         const childID = e.target.closest('li').getAttribute('child_id')
 
-        axios.get(`http://localhost:3001/children?id=${childID}`)
+        axios.get(`/children?id=${childID}`)
         .then(response => {
             console.log(response.data)
             props.setChildandContactsData([response.data])
@@ -19,7 +19,7 @@ function parentalControl(props){
         var childID = e.target.closest('.viewChild').getAttribute('child_id')
         console.log( "contact parent child" , contactID, parentID, childID )
 
-        axios.post(`http://localhost:3001/contacts/newContact?c_id=${childID}&p_id=${parentID}&u_id=${contactID}`).then(
+        axios.post(`/contacts/newContact?c_id=${childID}&p_id=${parentID}&u_id=${contactID}`).then(
             //console.log(props.childandContactsData[0].contacts[0].push())
             res => { 
                 console.log(res)
@@ -33,7 +33,7 @@ function parentalControl(props){
         var childID = e.target.closest('.viewChild').getAttribute('child_id')
         console.log( "contact parent child" , contactID, parentID, childID )
 
-        axios.delete(`http://localhost:3001/contacts/del?c_id=${childID}&u_id=${contactID}`).then(
+        axios.delete(`/contacts/del?c_id=${childID}&u_id=${contactID}`).then(
             //console.log(props.childandContactsData[0].contacts[0].push())
             res => { 
                 console.log(res)
@@ -45,7 +45,7 @@ function parentalControl(props){
     const openContactDetails = (e) => {
         const contactID = e.target.closest('.item').getAttribute('contact_id')
         
-        axios.get(`http://localhost:3001/users?id=${contactID}`)
+        axios.get(`/users?id=${contactID}`)
         .then(res => {
             console.log("HERE1" ,res)
             var div = document.createElement('div')
@@ -82,7 +82,7 @@ function parentalControl(props){
             contactsArray.forEach( (contact) => {
                 console.log("HELLO")
                 if(contact.account_type == 'p'){ 
-                     axios.get(`http://localhost:3001/parents?id=${contact.user_id}`)
+                     axios.get(`/parents?id=${contact.user_id}`)
                         .then(res => {
                             console.log(res.data)
                             console.log(counter)
@@ -97,7 +97,7 @@ function parentalControl(props){
                         })
                         
                 }else if(contact.account_type == 's'){
-                    axios.get(`http://localhost:3001/users?id=${contact.user_id}`)
+                    axios.get(`/users?id=${contact.user_id}`)
                     .then(res => {
                         console.log(res.data.user)
                         var div = document.createElement('div')
