@@ -337,3 +337,34 @@ video {
     display: none!important;
 }
 
+
+.incomingCall div{
+    background-color: #8db9f8;
+    padding: 20px 60px;
+    width: fit-content;
+    border-radius: 20px;
+    outline: 2px solid grey;
+    border: 2px solid white;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: fit-content;
+    button {
+        margin: 0.6em;
+        margin-top: -2px;
+        padding: 10px 20px;
+        font-size: 1.1em;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    .acceptButton{  
+        background-color: #52ca52;
+    }
+    .declineButton{
+        background-color: #ff7878;
+    }
+}
+

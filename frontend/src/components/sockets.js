@@ -127,7 +127,7 @@ function Sockets(props){
     //document.querySelector('.incomingCall').classList.add('hide')
     setReceivingCall(false);
     setCallAccepted(true);
-    
+
     const peer = new Peer({
       initiator: false,
       trickle: false,
@@ -172,8 +172,8 @@ function Sockets(props){
     incomingCall = (
       <div>
         <h1>{callerName} is calling you</h1>
-        <button onClick={acceptCall}>Accept</button>
-        <button onClick={declineCall}>Decline</button>
+        <button className="acceptButton" onClick={acceptCall}>Accept</button>
+        <button className="declineButton" onClick={declineCall}>Decline</button>
       </div>
     )
   }
