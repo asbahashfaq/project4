@@ -76,26 +76,29 @@ function sendEmail(details){
         service: "gmail", 
         auth: {
             user: "kidsocialsei51@gmail.com",
-            pass: process.env('EMAIL_PASS')
+            pass: "k#(8SS@hqq@##!./<MHh"//process.env('EMAIL_PASS')
         },
         tls: {
             rejectUnauthorized: false,
-        },
-    })
-    console.log(details)
+        }
+    });
+    console.log("transporter created, defining mailoptions")
     let mailOptions = {
         from: '"KidSocial" <kidsocialsei51@gmail.com>',
         to: `${details.email}`,
         subject: "Welcome to KidSocial",
         text: `Hi ${details.name}! \n\nWelcome to the KidSocial Network! \n You can log in using the following credentials: \n\n   Username: ${details.username}\n   Password: ${details.password}\n\nHave fun :) `
     }
+    console.log("transporter created, running sendMail function")
+
     transporter.sendMail(mailOptions, (error, success) => {
         if(error){
             console.log(error)
         }else{
             console.log("Email sent")
         }
-    })
+    });
+    console.log('mail sent')
 }
 
 
