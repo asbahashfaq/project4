@@ -19,6 +19,7 @@ This project was done as a part of the Software Engineering Immersive course at 
 #### Still to do 
 
 * Parents will get notifications for all the correspondence that their children do with their contacts.
+* Turning camera on automatically on call
 * Chat functionality will be implemented so that older children can chat with their contacts using text messages. 
 * Support for mobile and tablet devices. 
 
