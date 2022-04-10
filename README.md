@@ -1,4 +1,6 @@
-# KidSocial - An app for children to stay in touch with relatives in a fully monitored environment.
+# KidSocial
+
+## An app for children to stay in touch with relatives in a fully monitored environment.
 
 This project was done as a part of the Software Engineering Immersive course at General Assembly. 
 [Check it out!](https://kidsocial.herokuapp.com/)
