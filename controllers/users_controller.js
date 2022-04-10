@@ -76,7 +76,7 @@ function sendEmail(details){
         service: "gmail", 
         auth: {
             user: "kidsocialsei51@gmail.com",
-            pass: "k#(8SS@hqq@##!./<MHh"//process.env('EMAIL_PASS')
+            pass: process.env.EMAIL_PASS
         },
         tls: {
             rejectUnauthorized: false,
