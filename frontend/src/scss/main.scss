@@ -57,12 +57,13 @@ html{
             padding: 10px 30px;
             margin: 0px;
             text-align: left;
-            font-size: 1.2em;
-            margin-bottom: -10px;
+            font-size: 1.2em; 
             display: flex;
             justify-content: space-around;
             font-weight: 400;
             cursor: pointer;
+            background-color: white;
+            margin-bottom: 0px;
         }
         li {
             display: grid;

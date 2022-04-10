@@ -17,6 +17,7 @@ function Sockets(props){
   const [stream, setStream] = useState();
   const [receivingCall, setReceivingCall] = useState(false);
   const [caller, setCaller] = useState("");
+  const [callerName, setCallerName] = useState("");
   const [callerSignal, setCallerSignal] = useState();
   const [callAccepted, setCallAccepted] = useState(false); 
   
@@ -84,7 +85,9 @@ function Sockets(props){
 
     socket.current.on("hey", (data) => {
       setReceivingCall(true);
+      console.log(data)
       setCaller(data.from);
+      setCallerName(data.callerName);
       setCallerSignal(data.signal);
     })
   }, []);
@@ -103,7 +106,7 @@ function Sockets(props){
       });
 
       peer.on("signal", data => {
-        socket.current.emit("callUser", { userToCall: id, signalData: data, from: yourID })
+        socket.current.emit("callUser", { userToCall: id, signalData: data, from: yourID, callerName: props.user.name })
       })
 
       peer.on("stream", stream => {
@@ -121,25 +124,30 @@ function Sockets(props){
   }
 
   function acceptCall() {  
-  document.querySelector('.incomingCall').classList.add('hide')
-
-      setCallAccepted(true);
-      const peer = new Peer({
-        initiator: false,
-        trickle: false,
-        stream: stream,
-      });
-      peer.on("signal", data => {
-        socket.current.emit("acceptCall", { signal: data, to: caller })
-      })
-      
-      peer.on("stream", stream => {
-        console.log("partnerStream: ", stream)
-        partnerVideo.current.srcObject = stream;
-      });
-
-      peer.signal(callerSignal);
+    //document.querySelector('.incomingCall').classList.add('hide')
+    setReceivingCall(false);
+    setCallAccepted(true);
     
+    const peer = new Peer({
+      initiator: false,
+      trickle: false,
+      stream: stream,
+    });
+    peer.on("signal", data => {
+      socket.current.emit("acceptCall", { signal: data, to: caller })
+    })
+    
+    peer.on("stream", stream => {
+      console.log("partnerStream: ", stream)
+      partnerVideo.current.srcObject = stream;
+    });
+
+    peer.signal(callerSignal);
+    
+  }
+  function declineCall() {
+    setReceivingCall(false);
+    setCallAccepted(false);
   }
 
   let UserVideo; 
@@ -163,8 +171,9 @@ function Sockets(props){
 
     incomingCall = (
       <div>
-        <h1>{caller} is calling you</h1>
+        <h1>{callerName} is calling you</h1>
         <button onClick={acceptCall}>Accept</button>
+        <button onClick={declineCall}>Decline</button>
       </div>
     )
   }
