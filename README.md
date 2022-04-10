@@ -54,28 +54,41 @@ Basic wireframes were developed to understand the flow of the app.
 To run this project locally, do the following: 
 
 1. Clone the repository
-2. Create the database using the `schema.sql` file
-3. In `frontend/package.json`, add 
-        ```json
-        "proxy": "http://localhost:3001"
-        ```
-4. Create a `.env` file in your root directory and add `EXPRESS_SESSION_SECRET_KEY` 
-5. To allow nodemailer to send emails, add the following to your `.env` file
-        ```env
-        EMAIL=email
-        EMAIL_PASS=password
-        ```
+2. Install npm packages
+```
+npm i
+```
+3. Create the database using the `schema.sql` file
+4. In `frontend/package.json`, add 
+
+    ```
+    "proxy": "http://localhost:3001"
+    ```
+
+5. Create a `.env` file in your root directory and add `EXPRESS_SESSION_SECRET_KEY` 
+6. To allow nodemailer to send emails, add the following to your `.env` file
+
+    ```
+    EMAIL=email
+    EMAIL_PASS=password
+    ```
+
     Replace email and password with the email and password of the account you want to use
-4. To run the server, `cd` into the root directory (containing `server.js`), and run
-        ```sh
-        npm run dev
-        ```
-5. To execute the frontend app, run
-        ```sh
-        cd frontend
-        npm start
-        ```
-6. Go to `http://localhost:3000` to test the app
+7. To run the server, `cd` into the root directory (containing `server.js`), and run
+
+    ```
+    npm run dev
+    ```
+
+8. To execute the frontend app, run
+
+    ```
+    cd frontend
+    npm i
+    npm start
+    ```
+
+9. Go to `http://localhost:3000` to test the app
 
 
 [wireframe-image]: demo/wireframe.png
