@@ -3,7 +3,7 @@
 This project was done as a part of the Software Engineering Immersive course at General Assembly. 
 [Check it out!](https://kidsocial.herokuapp.com/)
 
-[login-image]
+![Login page][login-image]
 
 ### Functionality
 
@@ -46,7 +46,7 @@ The project has been deployed using [Heroku](https://www.heroku.com/), and is cu
 ### Wireframes
 
 Basic wireframes were developed to understand the flow of the app. 
-[wireframe-image]
+![Project Wireframe][wireframe-image]
 
 
 ## How to run locally
