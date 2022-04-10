@@ -34,7 +34,7 @@ router.post('/new', (req, res) => {
     User
         .create(name, username, email, passwordDigest, parents_id, image_url)
         .then(response => {
-            sendEmail({...response, password:password}) //send email to user with their login details
+            sendEmail(req.body) //send email to user with their login details
             const userID = response.id
             Contact.create(userID,'p',parents_id).then(
                 res => res
@@ -70,6 +70,7 @@ router.get('/', (req,res) => {
 })
   
 function sendEmail(details){
+    console.log("Sending email", details)
     //send email to this email - NODEMAILER
     const transporter = nodemailer.createTransport({
         service: "gmail", 
