@@ -67,3 +67,8 @@ CREATE TABLE notifications(
     content TEXT,
     notification_time timestamp DEFAULT CURRENT_TIMESTAMP
 )
+
+-- Notifications to be saved from child's end
+-- Accept: ___ received a call from ___ at <time>
+-- Call: ___ called ___ at <time>
+-- Decline: ___ declined a call from ___ at <time>
